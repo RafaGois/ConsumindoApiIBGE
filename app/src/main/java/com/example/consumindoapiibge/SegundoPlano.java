@@ -1,7 +1,8 @@
 package com.example.consumindoapiibge;
 
+import android.app.ProgressDialog;
+import android.content.Context;
 import android.os.AsyncTask;
-import android.util.Log;
 
 import java.io.IOException;
 import java.net.HttpURLConnection;
@@ -11,6 +12,21 @@ import java.util.Scanner;
 
 public class SegundoPlano extends AsyncTask<Void, Void, String> {
 
+    MainActivity mainActivity = new MainActivity();
+    ProgressDialog carregando = mainActivity.carregando;
+
+    Context spContext;
+
+    public SegundoPlano(Context context) {
+        this.spContext = context;
+    }
+
+    @Override
+    protected void onPreExecute() {
+        super.onPreExecute();
+
+        carregando = ProgressDialog.show(spContext, "Carregando estados...","Por favor, aguarde.");
+    }
 
     @Override
     protected String doInBackground(Void... voids) {
@@ -41,5 +57,15 @@ public class SegundoPlano extends AsyncTask<Void, Void, String> {
             e.printStackTrace();
         }
         return respostaIBGE.toString();
+    }
+
+    @Override
+    protected void onPostExecute(String s) {
+        super.onPostExecute(s);
+        if (s != null) {
+            carregando.dismiss();
+        } else {
+
+        }
     }
 }
