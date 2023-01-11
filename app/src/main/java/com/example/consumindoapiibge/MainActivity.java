@@ -37,8 +37,6 @@ public class MainActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        //Log.d("Estados", respostaIBGE);
-
         Gson gsonEstados = new GsonBuilder().setPrettyPrinting().create();
 
         Estado[] estados = gsonEstados.fromJson(respostaIBGE,Estado[].class);
@@ -47,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
 
         for (Estado estado : estados) {
 
-            estadosParaSpinner.add(estado.getNome());
+            estadosParaSpinner.add(FormataEstado.formata(estado.getNome()).trim());
         }
 
         Collections.sort(estadosParaSpinner);
