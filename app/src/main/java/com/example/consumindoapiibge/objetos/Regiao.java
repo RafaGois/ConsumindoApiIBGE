@@ -1,17 +1,25 @@
 package com.example.consumindoapiibge.objetos;
 
-public class Estado {
+public class Regiao {
 
-    private Integer id;
+    private int id;
     private String sigla;
     private String nome;
-    private Regiao regiao;
 
-    public Integer getId() {
+    public Regiao() {
+    }
+
+    public Regiao(int id, String sigla, String nome) {
+        this.id = id;
+        this.sigla = sigla;
+        this.nome = nome;
+    }
+
+    public int getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -29,13 +37,5 @@ public class Estado {
 
     public void setNome(String nome) {
         this.nome = nome;
-    }
-
-    public Regiao getRegiao() {
-        return regiao;
-    }
-
-    public void setRegiao(Regiao regiao) {
-        this.regiao = regiao;
     }
 }

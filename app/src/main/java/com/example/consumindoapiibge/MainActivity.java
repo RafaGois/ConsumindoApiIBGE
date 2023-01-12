@@ -40,12 +40,11 @@ public class MainActivity extends AppCompatActivity {
         Gson gsonEstados = new GsonBuilder().setPrettyPrinting().create();
 
         Estado[] estados = gsonEstados.fromJson(respostaIBGE,Estado[].class);
-
         ArrayList<String> estadosParaSpinner = new ArrayList<>();
 
         for (Estado estado : estados) {
 
-            estadosParaSpinner.add(FormataEstado.formata(estado.getNome()).trim());
+            estadosParaSpinner.add(FormataEstado.formata(estado.getRegiao().getNome()).trim());
         }
 
         Collections.sort(estadosParaSpinner);

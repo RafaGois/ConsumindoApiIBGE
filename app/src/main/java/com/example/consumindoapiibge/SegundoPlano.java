@@ -51,8 +51,6 @@ public class SegundoPlano extends AsyncTask<Void, Void, String> {
                 respostaIBGE.append(scanner.next());
             }
 
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -64,8 +62,6 @@ public class SegundoPlano extends AsyncTask<Void, Void, String> {
         super.onPostExecute(s);
         if (s != null) {
             carregando.dismiss();
-        } else {
-
         }
     }
 }
